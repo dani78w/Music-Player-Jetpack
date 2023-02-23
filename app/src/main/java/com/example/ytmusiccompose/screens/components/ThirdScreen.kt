@@ -1,6 +1,8 @@
 package com.example.ytmusiccompose.screens.components
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
@@ -14,7 +16,7 @@ fun ThirdScreen(navController: NavController){
     var wll = Wallpaper()
     var tbar = Topbar()
     var chps = Chips()
-    var cont = ContentSecond()
+    var cont = ContentThird()
     // A surface container using the 'background' color from the theme
     Box(){
         Surface(
@@ -35,7 +37,8 @@ fun ThirdScreen(navController: NavController){
                 //content
                 Column(
                     modifier = Modifier
-                        .weight(3f)
+                        .wrapContentWidth()
+                        .weight(1f).verticalScroll(enabled = true, state = rememberScrollState())
                 ) {
                     cont.content(navController)
                 }

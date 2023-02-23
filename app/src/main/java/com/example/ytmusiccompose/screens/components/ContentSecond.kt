@@ -6,10 +6,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
-import androidx.compose.material3.Button
-import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -40,7 +37,10 @@ class ContentSecond {
                 .wrapContentWidth()
         ) {
             VuelveAescuchar()
-            Spacer(modifier = Modifier.height(70.dp))
+
+            Divider(thickness = 1.dp,
+                color = MaterialTheme.colorScheme.primaryContainer,
+                modifier = Modifier.padding(start=120.dp,end = 120.dp, top = 40.dp,bottom = 40.dp))
             ButtonList(navController)
         }
 
@@ -57,7 +57,7 @@ class ContentSecond {
             fontWeight = androidx.compose.ui.text.font.FontWeight.ExtraBold,
             modifier = Modifier.padding(10.dp, 0.dp)
         )
-        Spacer(modifier = Modifier.height(5.dp))
+        Spacer(modifier = Modifier.height(25.dp))
 
         Row(
             modifier = Modifier

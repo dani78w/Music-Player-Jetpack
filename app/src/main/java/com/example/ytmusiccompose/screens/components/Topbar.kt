@@ -1,5 +1,6 @@
 package com.example.ytmusiccompose.screens.components
 
+import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
@@ -14,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.KeyboardType.Companion.Uri
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -57,7 +59,8 @@ class Topbar {
                         .padding(start = 4.dp, end = 0.1.dp, top = 0.dp)
                         .weight(2f)
                 )
-                IconButton(onClick = { navController.navigate("WorkInProgress") }){
+
+                IconButton(onClick = { ;navController.navigate("WorkInProgress") }){
                     Icon(Icons.Filled.Search, contentDescription = "Play", tint = androidx.compose.material3.MaterialTheme.colorScheme.surface)
                 }
                 IconButton(onClick = { navController.navigate("LoginScreen") }) {

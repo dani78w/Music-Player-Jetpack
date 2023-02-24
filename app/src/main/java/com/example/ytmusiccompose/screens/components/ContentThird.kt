@@ -44,8 +44,8 @@ class ContentThird {
             Divider(thickness = 1.dp,
                 color = MaterialTheme.colorScheme.primaryContainer,
                 modifier = Modifier.padding(start=120.dp,end = 120.dp, top = 30.dp))
-            AnimoYgeneros()
-            Comentarios()
+            AnimoYgeneros(navController)
+            Comentarios(navController)
 
         }
 
@@ -53,7 +53,7 @@ class ContentThird {
     }
 
     @Composable
-    fun AnimoYgeneros() {
+    fun AnimoYgeneros(navController:NavController){
         Spacer(modifier = Modifier.height(30.dp))
         Text(
             lineHeight = 40.sp,
@@ -77,6 +77,7 @@ class ContentThird {
 
                     Row(
                         modifier = Modifier
+                            .clickable { navController.navigate("WorkInProgress") }
                             .wrapContentWidth()
                             .height(40.dp)
                             .background(
@@ -109,6 +110,7 @@ class ContentThird {
         Row(
             modifier = Modifier
                 .wrapContentWidth()
+
                 .horizontalScroll(state = ScrollState(220), enabled = true)
         ) {
             Spacer(modifier =Modifier.width(10.dp))
@@ -119,6 +121,8 @@ class ContentThird {
 
                 Row(
                     modifier = Modifier
+                        .clickable { navController.navigate("WorkInProgress") }
+
                         .wrapContentWidth()
                         .height(40.dp)
                         .background(
@@ -159,6 +163,8 @@ class ContentThird {
 
                 Row(
                     modifier = Modifier
+                        .clickable { navController.navigate("WorkInProgress") }
+
                         .wrapContentWidth()
                         .height(40.dp)
                         .background(
@@ -189,7 +195,7 @@ class ContentThird {
         }
     }
     @Composable
-    fun Comentarios() {
+    fun Comentarios(navController:NavController) {
         Spacer(modifier = Modifier.height(30.dp))
         Text(
             lineHeight = 40.sp,
@@ -221,6 +227,8 @@ class ContentThird {
 
                 Column(
                     modifier = Modifier
+                        .clickable { navController.navigate("WorkInProgress") }
+
                         .fillMaxWidth()
                         .wrapContentHeight()
                         .background(

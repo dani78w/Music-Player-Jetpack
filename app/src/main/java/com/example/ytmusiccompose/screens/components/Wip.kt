@@ -22,7 +22,7 @@ fun WorkInProgress(navController:NavController) {
         //color = Color.Transparent
     ) {
 
-        Button(onClick = { navController.navigate("LoginScreen") }) {
+        Button(onClick = { navController.navigateUp()}) {
             Text("Work in progress")
         }
     }

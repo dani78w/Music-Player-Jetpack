@@ -25,6 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import androidx.navigation.NavController
 import com.example.ytmusiccompose.R
+import com.example.ytmusiccompose.data.userName
 
 @Composable
 fun LoginScreen(navController: NavController) {
@@ -118,6 +119,7 @@ fun LoginScreen(navController: NavController) {
                         onClick = {
                                   if(email.value == "admin" && password.value == "admin"){
                                       navController.navigate("FirstScreen")
+                                      userName.value = email.value
                                   }
                                   },
                         modifier = Modifier

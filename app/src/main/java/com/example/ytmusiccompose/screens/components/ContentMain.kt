@@ -61,12 +61,9 @@ class ContentMain {
                .wrapContentHeight()
                .wrapContentWidth()
                ) {
-
-               songContent(0)
-               songContent(1)
-               songContent(0)
-               songContent(1)
-               songContent(0)
+                    for(i in 0..canciones.size-1){
+                        songContent(i)
+                    }
            }
 
 
@@ -82,6 +79,8 @@ class ContentMain {
             fontWeight = androidx.compose.ui.text.font.FontWeight.ExtraBold,
             modifier = Modifier.padding(15.dp, 0.dp)
         )
+        Text(text ="Inicia una cancion reciente", fontSize = 15.sp,fontWeight = androidx.compose.ui.text.font.FontWeight.Light, modifier = Modifier.padding(15.dp,0.dp,bottom = 25.dp))
+
         Spacer(modifier = Modifier.height(5.dp))
 
         Row(
@@ -129,12 +128,14 @@ class ContentMain {
 
         Spacer(modifier = Modifier.height(40.dp))
         Text(
-            text = "Videos Musicales \nRecomendados",
+            text = "Videos Musicales",
             fontSize = 33.sp,
             fontWeight = androidx.compose.ui.text.font.FontWeight.ExtraBold,
             lineHeight = 34.sp,
-            modifier = Modifier.padding(15.dp, 0.dp)
+            modifier = Modifier.padding(15.dp, bottom = 0.dp)
         )
+        Text(text ="Inicia un video a partir de una canción", fontSize = 15.sp,fontWeight = androidx.compose.ui.text.font.FontWeight.Light, modifier = Modifier.padding(15.dp,0.dp,bottom = 25.dp))
+
         Spacer(modifier = Modifier.height(10.dp))
         Row(
             modifier = Modifier

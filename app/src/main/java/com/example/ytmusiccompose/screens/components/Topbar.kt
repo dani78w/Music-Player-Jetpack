@@ -57,7 +57,7 @@ class Topbar {
                         .padding(start = 4.dp, end = 0.1.dp, top = 0.dp)
                         .weight(2f)
                 )
-                IconButton(onClick = { /*TODO*/ }) {
+                IconButton(onClick = { navController.navigate("WorkInProgress") }){
                     Icon(Icons.Filled.Search, contentDescription = "Play", tint = androidx.compose.material3.MaterialTheme.colorScheme.surface)
                 }
                 IconButton(onClick = { navController.navigate("LoginScreen") }) {

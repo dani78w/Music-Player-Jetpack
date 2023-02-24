@@ -21,10 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.ytmusiccompose.R
-import com.example.ytmusiccompose.data.actual
-import com.example.ytmusiccompose.data.artistas
-import com.example.ytmusiccompose.data.caratulas
-import com.example.ytmusiccompose.data.nombres
+import com.example.ytmusiccompose.data.*
 
 class ContentSecond {
 
@@ -52,10 +49,10 @@ class ContentSecond {
     fun VuelveAescuchar() {
         Spacer(modifier = Modifier.height(40.dp))
         Text(
-            text = "Actividad reciente",
+            text = "Artistas recientes",
             fontSize = 33.sp,
             fontWeight = androidx.compose.ui.text.font.FontWeight.ExtraBold,
-            modifier = Modifier.padding(10.dp, 0.dp)
+            modifier = Modifier.padding(15.dp, 0.dp)
         )
         Spacer(modifier = Modifier.height(25.dp))
 
@@ -64,84 +61,34 @@ class ContentSecond {
                 .wrapContentWidth()
                 .horizontalScroll(state = ScrollState(220), enabled = true)
         ) {
-            Spacer(modifier =Modifier.width(30.dp))
-            Column(
-                modifier = Modifier
-                    .width(150.dp)
-                    .clickable {
-                        actual.value = 0;
-                    }
-                ,
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Image(
-                    painter = painterResource(id = caratulas[0]),
-                    contentDescription = "Song Image",
+            for(i in 0..canciones.size-1) {
+                Spacer(modifier = Modifier.width(30.dp))
+                Column(
                     modifier = Modifier
-                        .padding(1.dp)
-                        .size(150.dp)
-                        .clip(RoundedCornerShape(100.dp))
-                )
-                Text(
-                    textAlign = TextAlign.Center,
-                    text = artistas[0],
-                    fontSize = 16.sp,
-                    fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.inverseOnSurface,
-                )
+                        .width(150.dp)
+                        .clickable {
+                            actual.value = i;
+                        },
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Image(
+                        painter = painterResource(id = caratulas[i]),
+                        contentDescription = "Song Image",
+                        modifier = Modifier
+                            .padding(1.dp)
+                            .size(150.dp)
+                            .clip(RoundedCornerShape(100.dp))
+                    )
+                    Text(
+                        textAlign = TextAlign.Center,
+                        text = artistas[i],
+                        fontSize = 16.sp,
+                        fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.inverseOnSurface,
+                    )
+                }
             }
-            Spacer(modifier = Modifier.width(20.dp))
-            Column(
-                modifier = Modifier
-                    .width(150.dp)
-                    .clickable { actual.value = 1 }
-                ,
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Image(
-                    painter = painterResource(id = caratulas[1]),
-                    contentDescription = "Song Image",
-                    modifier = Modifier
-                        .padding(1.dp)
-                        .size(150.dp)
-                        .clip(RoundedCornerShape(100.dp))
-                )
-                Text(
-                    textAlign = TextAlign.Center,
-                    text = artistas[1],
-                    fontSize = 16.sp,
-                    fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.inverseOnSurface,
-                )
-            }
-            Spacer(modifier = Modifier.width(20.dp))
-            Column(
-                modifier = Modifier
-                    .width(150.dp)
-                    .clickable { actual.value = 0 }
-                ,
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Image(
-                    painter = painterResource(id = caratulas[0]),
-                    contentDescription = "Song Image",
-                    modifier = Modifier
-                        .padding(0.dp)
-                        .size(150.dp)
-                        .clip(RoundedCornerShape(100.dp))
-                )
-                Text(
-                    textAlign = TextAlign.Center,
-                    text = "Sing me to sleep",
-                    fontSize = 16.sp,
-                    fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.inverseOnSurface,
-                )
-            }
-
 
 
         }

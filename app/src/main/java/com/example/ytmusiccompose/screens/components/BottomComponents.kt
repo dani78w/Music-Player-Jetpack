@@ -42,6 +42,7 @@ class BottomComponents() {
         var context = LocalContext.current
         var loader =  remember{MediaPlayer.create(context, canciones[0])}
         var loader2 = remember{MediaPlayer.create(context, canciones[1])}
+        var loader3 = remember{MediaPlayer.create(context, canciones[2])}
 
 
 
@@ -88,7 +89,7 @@ class BottomComponents() {
 
                         ) {
                             Spacer(modifier = androidx.compose.ui.Modifier.height(10.dp))
-                            Text(text = "Sing me to sleep", fontSize = 16.sp, fontWeight = androidx.compose.ui.text.font.FontWeight.Bold, color = androidx.compose.material3.MaterialTheme.colorScheme.inverseSurface)
+                            Text(text = nombres[actual.value], fontSize = 16.sp, fontWeight = androidx.compose.ui.text.font.FontWeight.Bold, color = androidx.compose.material3.MaterialTheme.colorScheme.inverseSurface)
                             Text(text=artistas[actual.value],fontSize = 14.sp,fontWeight = androidx.compose.ui.text.font.FontWeight.Light,color = androidx.compose.material3.MaterialTheme.colorScheme.inverseSurface)
                         }
                         Column(modifier = androidx.compose.ui.Modifier.weight(1.15f)) {
@@ -103,14 +104,16 @@ class BottomComponents() {
 
 
                                 IconButton(onClick = {
+
                                     if(isPlaying==0){
                                         isPlaying = 1;
                                         estadoActual.value=1
                                         if (actual.value == 0) {
-
                                             loader.start()
-                                        } else {
+                                        } else if ( actual.value == 1){
                                             loader2.start()
+                                        }else if ( actual.value == 2){
+                                            loader3.start()
                                         }
 
                                     }else{
@@ -118,6 +121,7 @@ class BottomComponents() {
                                         estadoActual.value=0
                                         loader.pause()
                                         loader2.pause()
+                                        loader3.pause()
 
                                     }
                                 }){
@@ -136,9 +140,14 @@ class BottomComponents() {
                                         loader2.start()
                                         actual.value=1
                                         isPlaying=1;
-                                    }else {
+                                    }else if(actual.value==1){
 
                                         loader2.pause()
+                                        loader3.start()
+                                        actual.value=2
+                                        isPlaying=1;
+                                    }else if(actual.value==2){
+                                        loader3.pause()
                                         loader.start()
                                         actual.value=0
                                         isPlaying=1;

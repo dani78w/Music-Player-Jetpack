@@ -80,7 +80,7 @@ class ContentMain {
             text = "Vuelve a escucharlo",
             fontSize = 33.sp,
             fontWeight = androidx.compose.ui.text.font.FontWeight.ExtraBold,
-            modifier = Modifier.padding(10.dp, 0.dp)
+            modifier = Modifier.padding(15.dp, 0.dp)
         )
         Spacer(modifier = Modifier.height(5.dp))
 
@@ -133,7 +133,7 @@ class ContentMain {
             fontSize = 33.sp,
             fontWeight = androidx.compose.ui.text.font.FontWeight.ExtraBold,
             lineHeight = 34.sp,
-            modifier = Modifier.padding(10.dp, 0.dp)
+            modifier = Modifier.padding(15.dp, 0.dp)
         )
         Spacer(modifier = Modifier.height(10.dp))
         Row(
@@ -163,9 +163,9 @@ class ContentMain {
                     )
                     Text(
                         textAlign = TextAlign.Center,
-                        text = "Sing me to sleep",
+                        text = nombres[i]+" - "+artistas[i],
                         fontSize = 16.sp,
-                        fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
+                        fontWeight = androidx.compose.ui.text.font.FontWeight.Light,
                         color = MaterialTheme.colorScheme.inverseOnSurface,
                         modifier=Modifier.padding(bottom = 30.dp)
                     )

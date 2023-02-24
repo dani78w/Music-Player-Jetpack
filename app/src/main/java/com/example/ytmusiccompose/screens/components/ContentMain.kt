@@ -92,7 +92,8 @@ class ContentMain {
             Spacer(modifier =Modifier.width(30.dp))
             for(i in 0..canciones.size-1){
                 Column(
-                    modifier = Modifier.width(150.dp)
+                    modifier = Modifier
+                        .width(150.dp)
                         .clickable {
                             actual.value = i;
                         }
@@ -125,6 +126,7 @@ class ContentMain {
     }
     @Composable
     fun VideosMusicalesRecomendados(navController: NavController) {
+
         Spacer(modifier = Modifier.height(40.dp))
         Text(
             text = "Videos Musicales \nRecomendados",
@@ -140,57 +142,34 @@ class ContentMain {
                 .horizontalScroll(state = ScrollState(0), enabled = true)
         ) {
             Spacer(modifier = Modifier.width(30.dp))
-            Column(
-                modifier = Modifier.width(350.dp),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Image(
-                    painter = painterResource(id =caratulas[0]),
-                    contentDescription = "Song Image",
-                    modifier = Modifier
-                        .padding(1.dp)
-                        .width(500.dp)
-                        .height(200.dp)
-                        .background(Color.Black)
-                        .clickable {
-                            actual.value = 0;
-                            navController.navigate("PlayerVideoScreen")
-                        }
-                )
-                Text(
-                    textAlign = TextAlign.Center,
-                    text = "Sing me to sleep",
-                    fontSize = 16.sp,
-                    fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.inverseOnSurface,
-                )
-            }
-            Column(
-                modifier = Modifier.width(350.dp),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Image(
-                    painter = painterResource(id =caratulas[1] ),
-                    contentDescription = "Song Image",
-                    modifier = Modifier
-                        .padding(1.dp)
-                        .width(500.dp)
-                        .height(200.dp)
-                        .background(Color.Black)
-                        .clickable {
-                            actual.value = 1;
-                            navController.navigate("PlayerVideoScreen")
-                        }
-                )
-                Text(
-                    textAlign = TextAlign.Center,
-                    text = "Sing me to sleep",
-                    fontSize = 16.sp,
-                    fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.inverseOnSurface,
-                )
+            for (i in 0..canciones.size - 1) {
+                Column(
+                    modifier = Modifier.wrapContentWidth(),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Image(
+                        painter = painterResource(id = caratulas[i]),
+                        contentDescription = "Song Image",
+                        modifier = Modifier
+                            .padding(1.dp)
+                            .width(300.dp)
+                            .height(150.dp)
+                            .background(Color.Black)
+                            .clickable {
+                                actual.value = i;
+                                navController.navigate("PlayerVideoScreen")
+                            }
+                    )
+                    Text(
+                        textAlign = TextAlign.Center,
+                        text = "Sing me to sleep",
+                        fontSize = 16.sp,
+                        fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.inverseOnSurface,
+                        modifier=Modifier.padding(bottom = 30.dp)
+                    )
+                }
             }
         }
     }
@@ -198,7 +177,7 @@ class ContentMain {
     fun songContent(index:Int){
         Row(
             modifier = Modifier
-                .clickable(enabled = true, onClick = {actual.value = index})
+                .clickable(enabled = true, onClick = { actual.value = index })
                 .height(60.dp)
                 .wrapContentWidth(),
 
@@ -212,11 +191,14 @@ class ContentMain {
                     .padding(10.dp)
                     .size(50.dp)
                     .weight(0.2f)
-                    .clip(RoundedCornerShape(10.dp)
+                    .clip(
+                        RoundedCornerShape(10.dp)
                     )
 
             )
-            Column(modifier = androidx.compose.ui.Modifier.width(250.dp).weight(0.7f)) {
+            Column(modifier = androidx.compose.ui.Modifier
+                .width(250.dp)
+                .weight(0.7f)) {
                 Text(text = nombres[index], fontSize = 16.sp, fontWeight = androidx.compose.ui.text.font.FontWeight.Bold, color = androidx.compose.material3.MaterialTheme.colorScheme.surface)
                 Text(text= artistas[index],fontSize = 14.sp,fontWeight = androidx.compose.ui.text.font.FontWeight.Light,color = androidx.compose.material3.MaterialTheme.colorScheme.surface)
             }

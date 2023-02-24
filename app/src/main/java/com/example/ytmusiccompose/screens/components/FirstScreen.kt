@@ -3,15 +3,22 @@ package com.example.ytmusiccompose.screens
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Divider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import androidx.navigation.NavController
 import com.example.ytmusiccompose.data.actual
+import com.example.ytmusiccompose.data.userName
 import com.example.ytmusiccompose.screens.components.*
+import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 import java.nio.file.WatchEvent
 
 
@@ -47,10 +54,18 @@ fun FirstScreen(navController: NavController){
                 }
                 //content
                 Column(
-                    modifier = Modifier.wrapContentWidth()
-                        .weight(1f).verticalScroll(enabled = true, state = rememberScrollState())
+                    modifier = Modifier
+                        .wrapContentWidth()
+                        .weight(1f)
+                        .verticalScroll(enabled = true, state = rememberScrollState())
                 ) {
-                    chps.Chips()
+
+
+                    chps.Generos(navController)
+                    chps.Emogis(navController)
+                    Divider(thickness = 1.dp,
+                        color = MaterialTheme.colorScheme.primaryContainer,
+                        modifier = Modifier.padding(start=120.dp,end = 120.dp, top = 30.dp, bottom = 30.dp))
                     cont.content(navController)
                 }
 

@@ -3,6 +3,7 @@ package com.example.ytmusiccompose.data
 import androidx.compose.runtime.mutableStateOf
 import com.example.ytmusiccompose.R
 
+var userName= mutableStateOf("user")
 /*Canciones y caratulas*/
 var actual = mutableStateOf(0)
 var estadoActual = mutableStateOf(0)
